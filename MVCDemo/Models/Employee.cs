@@ -1,5 +1,8 @@
-﻿namespace MVCDemo.Models
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace MVCDemo.Models
 {
+    [Table("tblEmployee")]
     public class Employee
     {
         public int EmployeeId { get; set; }
