@@ -8,5 +8,10 @@ namespace MVCDemo.Controllers
         {
             return "Hello from  MVC Application";
         }
+
+        public string GetDetails()
+        {
+            return "Get Details invoked";
+        }
     }
 }
