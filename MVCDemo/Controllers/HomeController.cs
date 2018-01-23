@@ -1,16 +1,21 @@
-﻿using System.Web.Mvc;
+﻿using System.Collections.Generic;
+using System.Web.Mvc;
 
 namespace MVCDemo.Controllers
 {
     public class HomeController : Controller
     {
-        public string Index(string id)
+        public ActionResult Index()
         {
-            return "Id = " + id + " Name  = " + Request.QueryString["name"];
-        }
-        public string GetDetails()
-        {
-            return "Get Details invoked";
+            ViewBag.Countries = new List<string>()
+            {
+                "India",
+                "US",
+                "UK",
+                "Canada"
+            };
+
+            return View();
         }
     }
 }
