@@ -27,3 +27,16 @@ Select * from tblEmployee
 
 Insert into tblEmployee
 Values(101, 'John','Male', 'Mumbai')
+
+Insert into tblEmployee
+Values(2, 'Mark','Male', 'London')
+
+Insert into tblEmployee
+Values(3, 'Mary','Female', 'New york')
+
+Insert into tblEmployee
+Values(4, 'Mike','Male', 'San Jose')
+
+Update tblEmployee
+set EmployeeId = 1
+where EmployeeId = 101
