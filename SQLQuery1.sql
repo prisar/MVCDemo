@@ -40,3 +40,38 @@ Values(4, 'Mike','Male', 'San Jose')
 Update tblEmployee
 set EmployeeId = 1
 where EmployeeId = 101
+
+Alter Table tblEmployee
+Add DepartmentId int
+
+Select * from tblEmployee
+
+Update tblEmployee
+set DepartmentId = 3
+where EmployeeId = 1
+
+Update tblEmployee
+set DepartmentId = 1
+where EmployeeId = 2
+
+Update tblEmployee
+set DepartmentId = 3
+where EmployeeId = 3
+
+Update tblEmployee
+set DepartmentId = 2
+where EmployeeId = 4
+
+Create Table tblDepartment(
+	Id int,
+	Name varchar(255)
+)
+
+Insert into tblDepartment
+Values(1, 'IT')
+Insert into tblDepartment
+Values(2, 'HR')
+Insert into tblDepartment
+Values(3, 'Payroll')
+
+Select * from tblDepartment
