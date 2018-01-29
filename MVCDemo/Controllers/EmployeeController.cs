@@ -17,24 +17,28 @@ namespace MVCDemo.Controllers
         }
 
         [HttpGet]
-        public ActionResult Create()
+        [ActionName("Create")]
+        public ActionResult Create_Get()
         {
             return View();
         }
 
         [HttpPost]
-        public ActionResult Create(string name, string gender, string city, DateTime dateOfBirth)
+        [ActionName("Create")]
+        public ActionResult Create_Post()
         {
-            Employee employee = new Employee();
-            employee.Name = name;
-            employee.Gender = gender;
-            employee.City = city;
-            employee.DateOfBirth = dateOfBirth;
+            if (ModelState.IsValid)
+            {
+                Employee employee = new Employee();
+                UpdateModel(employee);
 
-            EmployeeBusinessLayer employeeBusinessLayer = new EmployeeBusinessLayer();
-            employeeBusinessLayer.AddEmployee(employee);
+                EmployeeBusinessLayer employeeBusinessLayer = new EmployeeBusinessLayer();
+                employeeBusinessLayer.AddEmployee(employee);
 
-            return RedirectToAction("Index");
+                return RedirectToAction("Index");
+            }
+
+            return View();
         }
     }
 }
