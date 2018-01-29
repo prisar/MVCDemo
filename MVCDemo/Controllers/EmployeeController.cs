@@ -23,13 +23,13 @@ namespace MVCDemo.Controllers
         }
 
         [HttpPost]
-        public ActionResult Create(FormCollection formCollection)
+        public ActionResult Create(string name, string gender, string city, DateTime dateOfBirth)
         {
             Employee employee = new Employee();
-            employee.Name = formCollection["Name"];
-            employee.Gender = formCollection["Gender"];
-            employee.City = formCollection["City"];
-            employee.DateOfBirth = Convert.ToDateTime(formCollection["DateOfBirth"]);
+            employee.Name = name;
+            employee.Gender = gender;
+            employee.City = city;
+            employee.DateOfBirth = dateOfBirth;
 
             EmployeeBusinessLayer employeeBusinessLayer = new EmployeeBusinessLayer();
             employeeBusinessLayer.AddEmployee(employee);
