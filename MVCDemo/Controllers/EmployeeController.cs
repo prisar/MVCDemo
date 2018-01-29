@@ -20,5 +20,17 @@ namespace MVCDemo.Controllers
         {
             return View();
         }
+
+        [HttpPost]
+        public ActionResult Create(FormCollection formCollection)
+        {
+            foreach(string key in formCollection.AllKeys)
+            {
+                Response.Write("Key = " + key + "   ");
+                Response.Write(formCollection[key]);
+                Response.Write("<br />");
+            }
+            return View();
+        }
     }
 }
