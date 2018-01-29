@@ -75,3 +75,36 @@ Insert into tblDepartment
 Values(3, 'Payroll')
 
 Select * from tblDepartment
+
+Select * from tblEmployee
+
+Alter Table tblEmployee
+Drop Column DepartmentId
+
+Alter Table tblEmployee
+Add DateOfBirth DateTime
+
+SP_RENAME 'tblEmployee.EmployeeId', 'Id'
+
+Create procedure spGetAllEmployees
+as
+Begin
+	Select Id, Name, Gender, City, DateOfBirth
+	from tblEmployee
+End
+
+Update tblEmployee
+set DateOfBirth = '1979-01-05'
+where Id = 1
+
+Update tblEmployee
+set DateOfBirth = '1981-03-07'
+where Id = 2
+
+Update tblEmployee
+set DateOfBirth = '1978-02-04'
+where Id = 3
+
+Update tblEmployee
+set DateOfBirth = '1974-02-03'
+where Id = 4
