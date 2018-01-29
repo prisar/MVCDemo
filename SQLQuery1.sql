@@ -108,3 +108,26 @@ where Id = 3
 Update tblEmployee
 set DateOfBirth = '1974-02-03'
 where Id = 4
+
+Create procedure spAddEmployee
+@Name nvarchar(50),
+@Gender nvarchar(10),
+@City nvarchar(50),
+@DateOfBirth DateTime
+as
+Begin
+	Insert into tblEmployee (Name, Gender, City, DateOfBirth)
+	Values (@Name, @Gender, @City, @DateOfBirth)
+End
+
+Update tblEmployee
+set Id = 5
+where Name='Vekat'
+
+Alter Table tblEmployee
+Drop Constraint PK_tblEmployee_Id
+
+Alter table tblEmployee
+Alter Column Id int null;
+
+Set Identity_Insert tblEmployee ON

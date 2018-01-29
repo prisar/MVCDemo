@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
 using BusinessLayer;
@@ -24,13 +25,16 @@ namespace MVCDemo.Controllers
         [HttpPost]
         public ActionResult Create(FormCollection formCollection)
         {
-            foreach(string key in formCollection.AllKeys)
-            {
-                Response.Write("Key = " + key + "   ");
-                Response.Write(formCollection[key]);
-                Response.Write("<br />");
-            }
-            return View();
+            Employee employee = new Employee();
+            employee.Name = formCollection["Name"];
+            employee.Gender = formCollection["Gender"];
+            employee.City = formCollection["City"];
+            employee.DateOfBirth = Convert.ToDateTime(formCollection["DateOfBirth"]);
+
+            EmployeeBusinessLayer employeeBusinessLayer = new EmployeeBusinessLayer();
+            employeeBusinessLayer.AddEmployee(employee);
+
+            return RedirectToAction("Index");
         }
     }
 }

@@ -67,6 +67,9 @@ namespace BusinessLayer
                 paramDateOfBirth.ParameterName = "@DateOfBirth";
                 paramDateOfBirth.Value = employee.DateOfBirth;
                 cmd.Parameters.Add(paramDateOfBirth);
+
+                con.Open();
+                cmd.ExecuteNonQuery();
             }
         }
     }
